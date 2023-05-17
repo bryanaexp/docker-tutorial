@@ -15,5 +15,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Run JMeter Tests
+      uses: rbhadti94/apache-jmeter-action@v0.5.0
+      with:
+        testFilePath: sample_test.jmx
+        outputReportsFolder: reports/
